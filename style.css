@@ -1,0 +1,118 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  /* border: 2px solid red; */
+}
+
+html {
+  font-size: 10px;
+  background: url('./images/3d-music-related-scene.jpg') bottom center;
+  background-size: cover;
+  /* transform: scale(1.2); */
+}
+
+body {
+  height: 100vh;
+  background-color: #00000099;
+
+}
+
+
+
+/* #span1 {
+  flex: 2
+}
+
+#span2 {
+  flex: 1
+} */
+
+#inp-container {
+  /* border: 2px solid red; */
+  padding: 40px 0;
+  display: flex;
+  justify-content: center;
+}
+
+
+#inp1 {
+  width: 80%;
+  min-height: 60px;
+  /* width: 20%; */
+  /* background-color: #fff; */
+  background-color: #00000091;
+  padding: 15px;
+  border-radius: 10px;
+  border: none;
+  /* box-shadow: 10px 10px 10px #ffc600; */
+  box-shadow: 4px 4px 10px #ffc600;
+  display: block;
+  /* margin: 2em auto 0 auto; */
+  color: #ffc600;
+  font-size: 25px;
+  font-weight: bolder;
+  font-family: cursive;
+  overflow: auto;
+  flex-wrap: wrap;
+  /* cursor: none; */
+  display: flex;
+  align-items: center;
+}
+
+
+
+#inp1 .keys {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background-color: #000000c9;
+}
+
+
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.key {
+  /* border: .4rem solid black; */
+  /* border: .4rem solid #1c1c1c; */
+  border: .4rem solid #352203;
+  border-radius: .5rem;
+  margin: 1rem;
+  font-size: 1.5rem;
+  padding: 1rem .5rem;
+  transition: all .07s ease;
+  width: 10rem;
+  /* width: 7rem; */
+  text-align: center;
+  color: white;
+  background: rgba(0, 0, 0, 0.4);
+  text-shadow: 0 0 .5rem black;
+}
+
+.playing {
+  transform: scale(1.1);
+  border-color: #ffc600;
+  box-shadow: 0 0 1rem #ffc600;
+}
+
+kbd {
+  display: block;
+  font-size: 4rem;
+}
+
+.sound {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+  color: #ffc600;
+}
