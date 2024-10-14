@@ -109,6 +109,14 @@
 // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
 
 
+
+
+// Get current year
+const currentYear = new Date().getFullYear();
+// Set  current year in the span
+document.getElementById('currentYear').textContent = currentYear;
+
+
 let completeValueOfInp1 = '';
 
 const keyDownEventHandler = (e) => {
@@ -142,9 +150,48 @@ const keyDownEventHandler = (e) => {
 };
 
 
+const clickEventHandler = (e) => {
+  const pressedKey = e.currentTarget; // Get the clicked key
+  const audioElem = document.querySelector(`audio[data-key="${pressedKey.dataset.key}"]`);
+
+  console.log(pressedKey.querySelector('kbd').textContent)
+
+  // return
+  if (!audioElem) return;
+
+  const inp1 = document.querySelector('#inp1');
+  const span1 = document.querySelector('#span1');
+  const span2 = document.querySelector('#span2');
+
+  // Update completeValueOfInp1 with the pressed key
+  completeValueOfInp1 += pressedKey.querySelector('kbd').textContent;
+
+  // Update span1 and span2 with respective values
+  const span1Value = completeValueOfInp1.slice(0, -1);
+  const span2Value = completeValueOfInp1.slice(-1);
+
+  span1.textContent = span1Value;
+  span2.textContent = span2Value;
+
+  // span1.innerHTML = span1Value;
+  // span2.innerHTML = span2Value;
+
+
+  // Add class and play sound
+  pressedKey.classList.add('playing');
+  audioElem.currentTime = 0;
+  audioElem.play();
+}
+
 const transformHandler = (e) => e.target.classList.remove('playing');
 
 const keys = Array.from(document.querySelectorAll('.key'));
-keys.forEach((key) => key.addEventListener('transitionend', transformHandler));
+
+keys.forEach((key) => {
+  key.addEventListener('transitionend', transformHandler);
+  key.addEventListener('click', clickEventHandler);
+});
+
+
 
 window.addEventListener('keydown', keyDownEventHandler);
